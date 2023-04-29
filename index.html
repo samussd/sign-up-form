@@ -26,13 +26,30 @@
         <div class="form-area__forms-container">
           <form class="form-area__forms" id="form" action="/action.php" method="post">
             <div class="form">
-              <label for="firstname">First Name</label>
-              <input type="text" id="firstname" name="firstname">
+              <label for="firstname">FIRST NAME</label>
+              <input type="text" id="firstname" name="firstname" required>
             </div>
             <div class="form">
-              <label for="lastname">Last Name</label>
-              <input type="text" id="lastname" name="lastname">
+              <label for="lastname">LAST NAME</label>
+              <input type="text" id="lastname" name="lastname" required>
             </div>
+            <div class="form">
+              <label for="useremail">EMAIL</label>
+              <input type="email" id="useremail" name="email" required>
+            </div>
+            <div class="form">
+              <label for="userphone">PHONE NUMBER</label>
+              <input type="text" id="userphone" name="phone" required>
+            </div>
+            <div class="form">
+              <label for="userpassword">PASSWORD</label>
+              <input type="password" id="userpassword" name="password" required>
+            </div>
+            <div class="form">
+              <label for="userpassword-confirm">CONFIRM PASSWORD</label required>
+              <input type="password" id="userpassword-confirm">
+            </div>
+            
             ...
           </form>
 
