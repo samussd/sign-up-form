@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+body {
+  margin: 0;
+}
+
 a, a:hover, a:focus, a:active {
   text-decoration: none;
   color: inherit;
@@ -18,4 +22,24 @@ input[type="reset"] {
 	cursor: pointer;
 	outline: inherit;
   background-color: aquamarine;
+}
+
+.form > input {
+  all: unset;
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+.hero {
+  flex: 1;
+  background-color: red;
+}
+
+.form-area {
+  flex: 1;
+  background-color: blue;
 }
