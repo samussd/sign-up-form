@@ -28,7 +28,9 @@ input[type="reset"] {
 
   padding: .5rem 2rem;
   width: max-content;
-  background-color: blue;
+  color: white;
+  border-radius: 4px;
+  background-color: rgb(91, 159, 36);
 }
 
 main {
@@ -45,9 +47,12 @@ main {
 .form-area {
   flex: 2;
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
   gap: 2rem;
-  background-color: aquamarine;
+  padding: 4rem 2rem;
+  background-color: whitesmoke;
+  font-family: 'Roboto', sans-serif;
 }
 
 
@@ -58,6 +63,7 @@ main {
 }
 
 .form {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -65,7 +71,10 @@ main {
   border-radius: 5px;
   padding: 4px 8px;
   gap: 4px;
+
+  box-shadow: inset 0px 0px 3px 2px rgba(0,0,0,0.1);
 }
+
 
 .form > input {
   all: unset;
@@ -76,9 +85,23 @@ main {
 }
 
 .form > input:invalid {
-  border: 1px solid red;
+  border: 1px solid rgba(255, 0, 0, 0.5);
 }
 
+.form > input:valid::after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  content: '✔️';
+  color: green;
+}
+
+
+
 .form > label {
-  font-size: .8rem;
+  font-size: .7rem;
+}
+
+.form-area__disclaimer-text {
+  font-size: 2rem;
 }
