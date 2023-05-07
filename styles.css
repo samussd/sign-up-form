@@ -1,3 +1,9 @@
+:root {
+  --button-color: rgb(91, 159, 36);
+  --background-color: rgb(36, 44, 54);
+  --form-color: rgb(25, 31, 39);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -30,7 +36,7 @@ input[type="reset"] {
   width: max-content;
   color: white;
   border-radius: 4px;
-  background-color: rgb(91, 159, 36);
+  background-color: var(--button-color);
 }
 
 main {
@@ -51,7 +57,7 @@ main {
   flex-direction: column;
   gap: 2rem;
   padding: 4rem 1rem 4rem 4rem;
-  background-color: rgb(36, 44, 54);
+  background-color: var(--background-color);
   font-family: 'Roboto', sans-serif;
   color: whitesmoke;
 }
@@ -74,7 +80,7 @@ main {
   flex: 1 0 40%;
   flex-direction: column;
   justify-content: flex-start;
-  background-color: rgb(25, 31, 39);
+  background-color: var(--form-color);
   border-radius: 5px;
   padding: 8px;
   gap: 4px;
@@ -84,7 +90,7 @@ main {
 }
 
 .form > input::placeholder {
-  opacity: 50%;
+  opacity: .5;
   user-select: none;
 }
 
@@ -95,6 +101,7 @@ main {
   border: 1px solid transparent;
   transition: all .3s ease-in-out;
 }
+
 
 .form > input:invalid {
   border: 1px solid rgba(255, 0, 0, 0.5);
@@ -113,8 +120,8 @@ main {
 .valid::after {
   position: absolute;
   content: '✔️';
-  right: .3rem;
-  top: .3rem;
+  right: 8px;
+  top: 8px;
   font-size: .7rem;
   color: rgb(12, 182, 0);
   transition: all 1s ease-in-out;
@@ -128,7 +135,7 @@ main {
 .form > label {
   position: relative;
   font-size: .7rem;
-  opacity: .5;
+  opacity: .7;
 }
 
 .form-container__text {
@@ -139,6 +146,34 @@ main {
   white-space: nowrap;
 }
 
+.form-container__pw-text {
+  font-size: .7rem;
+  color: #ff3232;
+  user-select: none;
+  white-space: nowrap;
+}
+
 .form-area__disclaimer-text {
   font-size: 2rem;
+}
+
+.form-area__button-container {
+  display: flex;
+}
+
+.form-area__button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: .5rem;
+}
+
+.form-area__button > button {
+  width: 100%;
+}
+
+.log-in-button {
+  color: var(--button-color);
 }

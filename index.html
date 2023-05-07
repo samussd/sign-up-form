@@ -27,7 +27,7 @@
           </p>
         </div>
     
-        <form class="form-area__forms" id="form" action="/action.php" method="post">
+        <form class="form-area__forms" id="form" action="/action.php" method="post" autocomplete="off">
           <div class="form-container">
             <div class="form">
               <label for="firstname">FIRST NAME</label>
@@ -62,7 +62,7 @@
             <div class="form">
               <label for="userphone">PHONE NUMBER</label>
               <input  type="text" id="userphone" name="phone"
-                      pattern="^[0-9]+$" title="Enter numbers only"
+                      pattern="^[+]?[0-9]+$" title="Enter numbers only"
                       minlength="6" placeholder="+00 1234567890" required>
             </div>
             <div class="form-container__text">&nbsp</div>
@@ -75,26 +75,29 @@
                       placeholder="••••••••" required
                       pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
             </div>
-            <div class="form-container__text">&nbsp</div>
+            <div class="form-container__pw-text">&nbsp</div>
           </div>
 
           <div class="form-container">
             <div class="form">
               <label for="userpassword-confirm">CONFIRM PASSWORD</label>
               <input  type="password" id="userpassword-confirm"
-                      placeholder="••••••••" required>
+                      placeholder="••••••••" required
+                      pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
             </div>
             <div class="form-container__text">&nbsp</div>
           </div>
         </form>
 
-        <div class="form-area__button">
-          <button class="sign-up-button" type="submit" form="form">
-            Create Account
-          </button>
-          <p class="form-area__log-in">
-            Already have an account? <a class="log-in-button" href="#">Log In</a>
-          </p>
+        <div class="form-area__button-container">
+          <div class="form-area__button">
+            <button class="sign-up-button" type="submit" form="form">
+              Create Account
+            </button>
+            <p class="form-area__log-in">
+              Already have an account? <a class="log-in-button" href="#">Log In</a>
+            </p>
+          </div>
         </div>
         
       </div>

@@ -3,8 +3,8 @@ pwConfirmField = document.getElementById('userpassword-confirm');
 inputs = document.querySelectorAll('div.form > input');
 forms = document.querySelectorAll('.form');
 
-
-function checkValidityFocus(form) {
+/** Adds a check next to the input if it's valid */
+function addCheck(form) {
   input = form.children[1];
   textArea = form.nextElementSibling;
 
@@ -15,7 +15,8 @@ function checkValidityFocus(form) {
   else form.classList.remove('valid');
 };
 
-function checkValidityBlur(form) {
+/** Adds an error message with a requirement for the input if it's invalid */
+function inputCheck(form) {
   input = form.children[1];
   textArea = form.nextElementSibling;
 
@@ -25,10 +26,11 @@ function checkValidityBlur(form) {
     if (input.id == 'useremail') textArea.textContent = '* Email must follow this format: name@mail.com';
     if (input.id == 'userphone') textArea.textContent = '* Phone number must contain only numbers';
   }
-  else if (input.id !== 'userpassword-confirm') textArea.innerHTML = '&nbsp';
+  else textArea.innerHTML = '&nbsp';
 };
 
-function checkPassword(pwField) {
+/** Adds an error message with requirements for the password field if necessary */
+function passwordCheck() {
   textArea = pwField.parentElement.nextElementSibling;
   finalText = '';
 
@@ -45,25 +47,32 @@ function checkPassword(pwField) {
   else textArea.innerHTML = '&nbsp';
 }
 
-function confirmPassword() {
+function confirmPasswordCheck() {
   textArea = pwConfirmField.parentElement.nextElementSibling;
 
-  if (pwField.value != pwConfirmField.value) {
+  if (pwField.value!=pwConfirmField.value) {
     textArea.textContent = '* The passwords do not match';
     pwConfirmField.parentElement.classList.remove('valid');
     pwConfirmField.validity.valid = false;
   }
-  else textArea.innerHTML = '&nbsp';
+  else {
+    if (!pwConfirmField.validity.patternMismatch && pwConfirmField.value!='') 
+      pwConfirmField.parentElement.classList.add('valid');
+    textArea.innerHTML = '&nbsp'
+  };
 }
 
 forms.forEach(form => form.querySelector('input')
-  .addEventListener('input', () => checkValidityFocus(form)));
+  .addEventListener('input', () => addCheck(form)));
 
 forms.forEach(form => form.querySelector('input')
-  .addEventListener('blur', () => checkValidityBlur(form)));
+  .addEventListener('blur', () => inputCheck(form)));
 
 pwField
-  .addEventListener('input', () => {checkPassword(pwField); confirmPassword()});
+  .addEventListener('input', () => {passwordCheck(); confirmPasswordCheck()});
 
 pwConfirmField
-  .addEventListener('input', () => confirmPassword());
+  .addEventListener('input', () => confirmPasswordCheck());
+
+pwConfirmField
+  .addEventListener('blur', () => confirmPasswordCheck());
