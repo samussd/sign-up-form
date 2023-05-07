@@ -50,9 +50,10 @@ main {
   justify-content: center;
   flex-direction: column;
   gap: 2rem;
-  padding: 4rem;
-  background-color: whitesmoke;
+  padding: 4rem 1rem 4rem 4rem;
+  background-color: rgb(36, 44, 54);
   font-family: 'Roboto', sans-serif;
+  color: whitesmoke;
 }
 
 
@@ -60,7 +61,11 @@ main {
   display: flex;
   flex-wrap: wrap;
   max-width: 35rem;
-  gap: 2rem 4rem;
+  gap: 2rem 2rem;
+}
+
+.form-container {
+  position: relative;
 }
 
 .form {
@@ -69,16 +74,18 @@ main {
   flex: 1 0 40%;
   flex-direction: column;
   justify-content: flex-start;
-  background-color: white;
+  background-color: rgb(25, 31, 39);
   border-radius: 5px;
-  padding: 4px 8px;
+  padding: 8px;
   gap: 4px;
 
-  box-shadow: inset 0px 0px 3px 2px rgba(0,0,0,0.1);
+  box-shadow:
+    inset 0px 0px 2px 1px rgba(0,0,0,0.2);
 }
 
 .form > input::placeholder {
   opacity: 50%;
+  user-select: none;
 }
 
 .form > input {
@@ -110,6 +117,7 @@ main {
   top: .3rem;
   font-size: .7rem;
   color: rgb(12, 182, 0);
+  transition: all 1s ease-in-out;
 }
 
 .form > input:placeholder-shown {
@@ -120,6 +128,15 @@ main {
 .form > label {
   position: relative;
   font-size: .7rem;
+  opacity: .5;
+}
+
+.form-container__text {
+  position: absolute;
+  font-size: .7rem;
+  color: #ff3232;
+  user-select: none;
+  white-space: nowrap;
 }
 
 .form-area__disclaimer-text {

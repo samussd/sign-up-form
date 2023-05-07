@@ -28,36 +28,63 @@
         </div>
     
         <form class="form-area__forms" id="form" action="/action.php" method="post">
-          <div class="form valid">
-            <label for="firstname">FIRST NAME</label>
-            <input  type="text" id="firstname" name="firstname" 
-                    placeholder="John" required>
+          <div class="form-container">
+            <div class="form">
+              <label for="firstname">FIRST NAME</label>
+              <input  type="text" id="firstname" name="firstname"
+                      placeholder="John" pattern="^[a-zA-Z]+$"
+                      maxlength="30" required>
+            </div>
+            <div class="form-container__text">&nbsp</div>
           </div>
-          <div class="form">
-            <label for="lastname">LAST NAME</label>
-            <input  type="text" id="lastname" name="lastname" 
-                    placeholder="Doe" required>
+
+          <div class="form-container">
+            <div class="form">
+              <label for="lastname">LAST NAME</label>
+              <input  type="text" id="lastname" name="lastname"
+                      placeholder="Doe" pattern="^[a-zA-Z]+$"
+                      maxlength="30" required>
+            </div>
+            <div class="form-container__text">&nbsp</div>
           </div>
-          <div class="form">
-            <label for="useremail">EMAIL</label>
-            <input  type="email" id="useremail" name="email" 
-                    placeholder="name@mail.com" required>
+
+          <div class="form-container">
+            <div class="form">
+              <label for="useremail">EMAIL</label>
+              <input  type="email" id="useremail" name="email"
+                      placeholder="name@mail.com" required
+                      pattern='^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$'>
+            </div>
+            <div class="form-container__text">&nbsp</div>
           </div>
-          <div class="form">
-            <label for="userphone">PHONE NUMBER</label>
-            <input  type="text" id="userphone" name="phone" 
-                    pattern="^[0-9]+$" title="Enter numbers only" 
-                    minlength="6" placeholder="+00 1234567890" required>
+
+          <div class="form-container">
+            <div class="form">
+              <label for="userphone">PHONE NUMBER</label>
+              <input  type="text" id="userphone" name="phone"
+                      pattern="^[0-9]+$" title="Enter numbers only"
+                      minlength="6" placeholder="+00 1234567890" required>
+            </div>
+            <div class="form-container__text">&nbsp</div>
           </div>
-          <div class="form">
-            <label for="userpassword">PASSWORD</label>
-            <input  type="password" id="userpassword" name="password" 
-                    placeholder="••••••••" required>
+
+          <div class="form-container">
+            <div class="form">
+              <label for="userpassword">PASSWORD</label>
+              <input  type="password" id="userpassword" name="password"
+                      placeholder="••••••••" required
+                      pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
+            </div>
+            <div class="form-container__text">&nbsp</div>
           </div>
-          <div class="form">
-            <label for="userpassword-confirm">CONFIRM PASSWORD</label>
-            <input  type="password" id="userpassword-confirm" 
-                    placeholder="••••••••" required>
+
+          <div class="form-container">
+            <div class="form">
+              <label for="userpassword-confirm">CONFIRM PASSWORD</label>
+              <input  type="password" id="userpassword-confirm"
+                      placeholder="••••••••" required>
+            </div>
+            <div class="form-container__text">&nbsp</div>
           </div>
         </form>
 
