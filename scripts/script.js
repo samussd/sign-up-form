@@ -1,7 +1,9 @@
 pwField = document.getElementById('userpassword');
 pwConfirmField = document.getElementById('userpassword-confirm');
 inputs = document.querySelectorAll('div.form > input');
+form = document.querySelector('.form');
 forms = document.querySelectorAll('.form');
+submitBtn = document.querySelector('.sign-up-button');
 
 /** Adds a check next to the input if it's valid */
 function addCheck(form) {
@@ -41,12 +43,12 @@ function passwordCheck() {
     if (!/[@$!%*?&]/.test(pwField.value)) finalText += '* Must have at least 1 special character <br>';
     if (!/\d/.test(pwField.value)) finalText += '* Must have at least 1 number <br>';
 
-    console.log(finalText);
     textArea.innerHTML = finalText;
   }
   else textArea.innerHTML = '&nbsp';
 }
 
+/** Adds an error message if the passwords do not match */
 function confirmPasswordCheck() {
   textArea = pwConfirmField.parentElement.nextElementSibling;
 
@@ -60,6 +62,20 @@ function confirmPasswordCheck() {
       pwConfirmField.parentElement.classList.add('valid');
     textArea.innerHTML = '&nbsp'
   };
+}
+
+/** If the form is valid, just refresh the page without submitting */
+function submitBtnClick(e) {
+  isValid = true;
+  forms.forEach(form => {
+    input = form.querySelector('input')
+    if (!input.validity.valid) isValid = false;
+  })
+
+  if (isValid) {
+    e.preventDefault();
+    document.location.reload();
+  }
 }
 
 forms.forEach(form => form.querySelector('input')
@@ -76,3 +92,6 @@ pwConfirmField
 
 pwConfirmField
   .addEventListener('blur', () => confirmPasswordCheck());
+
+submitBtn
+  .addEventListener('click', (e) => submitBtnClick(e));
