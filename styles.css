@@ -225,8 +225,18 @@ main {
   width: 100%;
 }
 
+.form-area__button > button:hover {
+  filter: brightness(1.05);
+}
+
+
 .log-in-button {
   color: var(--button-color);
+}
+
+.log-in-button:hover {
+  color: var(--button-color);
+  filter: brightness(1.05);
 }
 
 @media only screen and (max-width: 1200px){
