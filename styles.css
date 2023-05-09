@@ -8,8 +8,13 @@
   box-sizing: border-box;
 }
 
+html {
+  height: 100vh;
+}
+
 body {
   margin: 0;
+  height: 100%;
 }
 
 a, a:hover, a:focus, a:active {
@@ -42,13 +47,13 @@ input[type="reset"] {
 main {
   display: flex;
   flex-direction: row;
-  height: 100vh;
+  height: 100%;
 }
 
 /* HERO */
 
 .hero {
-  flex: 1;
+  flex: 2;
   background-image: url("assets/hero.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -59,11 +64,13 @@ main {
 
 .hero__title {
   display: flex;
+  flex-wrap: wrap-reverse;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 2rem 0;
+  padding: 2rem;
   margin-top: 20%;
+  gap: 1rem;
 
   width: 100%;
   background: 
@@ -77,13 +84,23 @@ main {
   font-size: 4rem;
 }
 
+.hero__logo {
+  background-image: url("assets/logo.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  fill: white;
+  height: 4rem;
+  width: 4rem;
+}
+
 /* FORMS */
 
 .form-area {
-  flex: 2;
+  flex: 3;
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
   gap: 2rem;
   padding: 4rem 1rem 4rem 4rem;
   background-color: var(--background-color);
@@ -187,6 +204,10 @@ main {
   font-size: 2rem;
 }
 
+.form-area__disclaimer-text > span {
+  color: var(--button-color);
+}
+
 .form-area__button-container {
   display: flex;
 }
@@ -206,4 +227,27 @@ main {
 
 .log-in-button {
   color: var(--button-color);
+}
+
+@media only screen and (max-width: 1200px){
+  main {
+    flex-direction: column;
+  }
+
+  .hero__title {
+    margin-top: 0;
+  }
+
+  .form-area {
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .form-area__forms {
+    justify-content: center;
+  }
+
+  .form-area__disclaimer-text {
+    text-align: center;
+  }
 }
